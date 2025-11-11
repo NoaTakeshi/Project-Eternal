@@ -1,5 +1,115 @@
-[gd_scene format=3 uid="uid://dpwvbowkk48r1"]
+[gd_scene load_steps=20 format=3 uid="uid://dpwvbowkk48r1"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[ext_resource type="Script" uid="uid://d03kqbldl810s" path="res://Scripts/player.gd" id="1_ye8ic"]
+[ext_resource type="Texture2D" uid="uid://wwsibprh38xg" path="res://Assets/Sprites/Player/frame12.png" id="2_oimcg"]
+[ext_resource type="Texture2D" uid="uid://nov14jmrpsvi" path="res://Assets/Sprites/Player/frame15.png" id="3_lpedo"]
+[ext_resource type="Texture2D" uid="uid://c3kor44urq6fq" path="res://Assets/Sprites/Player/frame14.png" id="4_35rbq"]
+[ext_resource type="Texture2D" uid="uid://dllfvw4jrlsd6" path="res://Assets/Sprites/Player/frame13.png" id="5_562eg"]
+[ext_resource type="Texture2D" uid="uid://1thwrhnmw7k6" path="res://Assets/Sprites/Player/frame0.png" id="6_84f7o"]
+[ext_resource type="Texture2D" uid="uid://b1xpy8syyjqa7" path="res://Assets/Sprites/Player/frame1.png" id="7_w6o62"]
+[ext_resource type="Texture2D" uid="uid://deseu1r8vmo0p" path="res://Assets/Sprites/Player/frame2.png" id="8_8m2kn"]
+[ext_resource type="Texture2D" uid="uid://cfij54snur7vu" path="res://Assets/Sprites/Player/frame3.png" id="9_7b0j5"]
+[ext_resource type="Texture2D" uid="uid://y1ita8nxr8i2" path="res://Assets/Sprites/Player/frame4.png" id="10_getkc"]
+[ext_resource type="Texture2D" uid="uid://caks6chulkc7i" path="res://Assets/Sprites/Player/frame5.png" id="11_xbgn5"]
+[ext_resource type="Texture2D" uid="uid://d08dfyf1itrxm" path="res://Assets/Sprites/Player/frame6.png" id="12_v63vq"]
+[ext_resource type="Texture2D" uid="uid://d02eirhul20bn" path="res://Assets/Sprites/Player/frame7.png" id="13_eadb6"]
+[ext_resource type="Texture2D" uid="uid://bfbsep6ew6bln" path="res://Assets/Sprites/Player/frame8.png" id="14_7jt6v"]
+[ext_resource type="Texture2D" uid="uid://byg0fy5j0jpn0" path="res://Assets/Sprites/Player/frame9.png" id="15_08u03"]
+[ext_resource type="Texture2D" uid="uid://dq6nlxuhey51v" path="res://Assets/Sprites/Player/frame10.png" id="16_6wfar"]
+[ext_resource type="Texture2D" uid="uid://dyb8phk7hdqei" path="res://Assets/Sprites/Player/frame11.png" id="17_twbr1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxs06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oimcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lpedo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_35rbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_562eg")
+}],
+"loop": true,
+"name": &"Caminar_Arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_84f7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w6o62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8m2kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7b0j5")
+}],
+"loop": true,
+"name": &"Caminar_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_getkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xbgn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v63vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eadb6")
+}],
+"loop": true,
+"name": &"Caminar_derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7jt6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_08u03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6wfar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_twbr1")
+}],
+"loop": true,
+"name": &"Caminar_izquierda",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_84f7o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bhph"]
+size = Vector2(12.5, 5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ye8ic")
+
+[node name="AnimatePlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_xxs06")
+animation = &"Caminar_abajo"
+frame = 3
+frame_progress = 0.0255412
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_1bhph")

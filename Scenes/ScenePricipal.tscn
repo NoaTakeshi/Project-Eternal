@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://cbaavvckhi1jq"]
+[gd_scene load_steps=4 format=3 uid="uid://cbaavvckhi1jq"]
+
+[ext_resource type="Texture2D" uid="uid://cri2kril46xdq" path="res://Assets/Sprites/Scenarios/muro.jpg" id="1_gngon"]
+[ext_resource type="PackedScene" uid="uid://dpwvbowkk48r1" path="res://Scenes/PlayerScene.tscn" id="1_w240n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umhyg"]
+size = Vector2(31.75, 25.75)
 
 [node name="Escena" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(122, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(272, 107)
+scale = Vector2(1, 0.815)
+texture = ExtResource("1_gngon")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(272, 108)
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_umhyg")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_w240n")]
+position = Vector2(889, 396)
+scale = Vector2(6, 6)
